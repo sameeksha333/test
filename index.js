@@ -22,7 +22,12 @@ if(fs.existsSync(SESSION_FILE_PATH)) {
 }
 
 const client = new Client({
-    session: sessionData
+    session: sessionData,
+    puppeteer = {
+        headless: true,
+        ignoreHTTPSErrors: true,
+        args: ['--no-sandbox', '--single-process', '--no-zygote', '--disable-setuid-sandbox']
+    }
 });
 
  function deleteSession(){
