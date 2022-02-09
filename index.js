@@ -41,14 +41,14 @@ const client = new Client({
           });
     });
 
-    // client.on('authenticated', (session) => {
-    //     sessionData = session;
-    //       fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), (err) => {
-    //         if (err) {
-    //             console.error(err);
-    //         }
-    //     });
-    // });
+    client.on('authenticated', (session) => {
+        sessionData = session;
+          fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+    });
 
     client.on('ready', () => {
         console.log("ClientReady")
@@ -101,9 +101,9 @@ const client = new Client({
         }) 
     });
 
+const port = process.env.port || 3001
 
-
-app.listen(3001, () => {
+app.listen(port, () => {
     console.log('Server is running on PORT:3001');
   });
 
