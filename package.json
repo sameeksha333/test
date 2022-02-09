@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +20,8 @@
     "web.js": "^1.0.1",
     "whatsapp": "^1.0.0",
     "whatsapp-web.js": "^1.15.3"
+  },
+  "devDependencies": {
+    "puppeteer": "^13.2.0"
   }
 }
