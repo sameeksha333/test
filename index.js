@@ -22,12 +22,7 @@ if(fs.existsSync(SESSION_FILE_PATH)) {
 }
 
 const client = new Client({
-    session: sessionData,
-    puppeteer = {
-        headless: true,
-        ignoreHTTPSErrors: true,
-        args: ['--no-sandbox', '--single-process', '--no-zygote', '--disable-setuid-sandbox']
-    }
+    session: sessionData
 });
 
  function deleteSession(){
@@ -46,14 +41,14 @@ const client = new Client({
           });
     });
 
-    client.on('authenticated', (session) => {
-        sessionData = session;
-          fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), (err) => {
-            if (err) {
-                console.error(err);
-            }
-        });
-    });
+    // client.on('authenticated', (session) => {
+    //     sessionData = session;
+    //       fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), (err) => {
+    //         if (err) {
+    //             console.error(err);
+    //         }
+    //     });
+    // });
 
     client.on('ready', () => {
         console.log("ClientReady")
